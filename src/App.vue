@@ -1,15 +1,11 @@
 <template>
-  <div class="black-bg" v-if="모달창열렸니 == true">
-    <div class="white-bg">
-      <h4>{{ 원룸들[누른거].title }}</h4>
-      <p>상세페이지 내용임</p>
-      <div class="close-btn" @click="모달창열렸니 = false">닫기</div>
-    </div>
-  </div>
+  <Modal :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" />
 
   <div class="menu">
     <a v-for="test in 메뉴들" :key="test">{{ test }}</a>
   </div>
+
+  <Discount />
   <!--<img alt="Vue logo" src="./assets/logo.png" />-->
   <!-- 개선 전 -->
   <!--
@@ -60,6 +56,8 @@
 <script>
 //import HelloWorld from "./components/HelloWorld.vue";
 import data from "./assets/data";
+import Discount from "./Discount.vue";
+import Modal from "./Modal.vue";
 // 함수 메소드 추가 후 사용법
 export default {
   name: "App",
@@ -86,7 +84,9 @@ export default {
     },
   },
   components: {
+    Discount: Discount,
     //HelloWorld,
+    Modal: Modal,
   },
 };
 </script>
